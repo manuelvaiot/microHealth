@@ -198,7 +198,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               FlatButton(onPressed:() {
-                sendComand();
+                readComand();
               }
                   , child: Text("Enviar"))
             ],

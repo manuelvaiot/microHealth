@@ -28,10 +28,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+
+
   FlutterBlue _ble = FlutterBlue.instance;
   List<ScanResult> result = List();
   bool isConnected = false;
+
+
   initState(){
     super.initState();
     scanning();
@@ -237,7 +240,7 @@ class _MyHomePageState extends State<MyHomePage> {
             for(String _data  in data){
                   command.add(int.parse(_data));
             }
-            characteristic.write(command);
+            characteristic.write(command, withoutResponse: true);
           }
         }
       }
@@ -255,7 +258,21 @@ class _MyHomePageState extends State<MyHomePage> {
               controler5.text.toString())) {
             if (!characteristic.isNotifying) {
               characteristic.setNotifyValue(true);
+              //characteristic.read()
               BluetoothResponse.add(await characteristic.value.last);
+
+              //
+              // for(BluetoothDescriptor descriptor in characteristic.descriptors ){
+              //   if(descriptor.uuid.toString() == controler4.text.toString()){
+              //     await descriptor.read();
+              //     descriptor.write("List of string");
+              //     descriptor.value.listen((event) {
+              //       print(event);
+              //     });
+              //     descriptor.lastValue; //Ultimo valor postado no descriptor
+              //
+              //   }
+              // }
             }
           }
         }

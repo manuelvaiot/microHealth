@@ -62,6 +62,9 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController controler4 = TextEditingController();
   TextEditingController controler5 = TextEditingController();
 
+
+  TextEditingController controler6 = TextEditingController();
+
   BluetoothDevice _Device;
 
   List<List<int>> BluetoothResponse = List();
@@ -263,7 +266,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
               //
               // for(BluetoothDescriptor descriptor in characteristic.descriptors ){
-              //   if(descriptor.uuid.toString() == controler4.text.toString()){
+              //   if(descriptor.uuid.toString() == controler6.text.toString()){
               //     await descriptor.read();
               //     descriptor.write("List of string");
               //     descriptor.value.listen((event) {
